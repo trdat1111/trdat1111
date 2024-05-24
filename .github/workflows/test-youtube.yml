@@ -6,12 +6,13 @@ on:
   workflow_dispatch:
   
 jobs:
-  update-readme-with-youtube:
-    name: Update this repos README with latest videos from YouTube
+  update-readme-with-linkedin:
+    name: Update this repo's README with latest blog posts
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: gautamkrishnar/blog-post-workflow@master
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Pull in Linkedin posts
+        uses: gautamkrishnar/blog-post-workflow@v1
         with:
-          comment_tag_name: "YOUTUBE-VIDEOS-LIST"
           feed_list: "https://www.linkedin.com/in/nguyendat1111/recent-activity/all/"
