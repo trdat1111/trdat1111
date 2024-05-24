@@ -4,7 +4,7 @@
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=trdat1111&label=Profile%20views&color=0e75b6&style=flat" alt="trdat1111" /> </p>
 
-- 📝 I regularly write articles on [My Linkedin](www.linkedin.com/in/nguyendat1111)
+- 📝 I regularly write articles on [My Linkedin](https://www.linkedin.com/in/nguyendat1111)
 
 - 📫 How to reach me **ntrongdat1111@gmail.com**
 
