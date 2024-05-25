@@ -1,44 +1,33 @@
 const fs = require("fs");
 
-async function updateReadme() {
-    const youtubeUrl = document.getElementById("youtubeVideoUrl").value;
-    const youtubeTitle = document.getElementById("youtubeVideoTitle").value;
-    const blogUrl = document.getElementById("blogPostUrl").value;
-    const blogTitle = document.getElementById("blogPostTitle").value;
+const newYouTubeVideo = {
+    title: "New JavaScript Tips",
+    url: "https://sáasasasasasaddawww.youtube.com/watch?v=newvideo",
+};
+const newBlogPost = { title: "Understanding Async/Await", url: "https://blog.example.com/newpost" };
+
+async function updateReadme(newYouTubeVideo, newBlogPost) {
+    let readmeContent = fs.readFileSync("README.md", "utf8");
 
     // Find the existing sections for YouTube Videos and Blog Posts
     const youtubeRegex = /### YouTube Videos\n([\s\S]*?)(?=\n### |\n## |\n$)/;
     const blogRegex = /### Blog Posts\n([\s\S]*?)(?=\n## |\n$)/;
 
-    let readmeContent = fs.readFileSync("README.md", "utf8");
-
-    if (youtubeUrl && youtubeTitle) {
+    if (newYouTubeVideo) {
         const updatedYouTubeSection = readmeContent.replace(youtubeRegex, (match, p1) => {
-            return `${match}\n- [${youtubeTitle}](${youtubeUrl})\n`;
+            return `${match}\n- [${newYouTubeVideo.title}](${newYouTubeVideo.url})\n`;
         });
 
         fs.writeFileSync("README.md", updatedYouTubeSection);
-
-        const youtubeList = document.getElementById("youtubeList");
-        const listItem = document.createElement("li");
-        listItem.innerHTML = `<a href="${youtubeUrl}" target="_blank">${youtubeTitle}</a>`;
-        youtubeList.appendChild(listItem);
     }
 
-    if (blogUrl && blogTitle) {
+    if (newBlogPost) {
         const updatedBlogSection = readmeContent.replace(blogRegex, (match, p1) => {
             return `${match}\n- [${newBlogPost.title}](${newBlogPost.url})\n`;
         });
 
         fs.writeFileSync("README.md", updatedBlogSection);
-
-        const blogList = document.getElementById("blogList");
-        const listItem = document.createElement("li");
-        listItem.innerHTML = `<a href="${blogUrl}" target="_blank">${blogTitle}</a>`;
-        blogList.appendChild(listItem);
     }
-
-    document.getElementById("researchForm").reset();
 }
 
-// updateReadme(newYouTubeVideo, newBlogPost);
+updateReadme(newYouTubeVideo, newBlogPost);
