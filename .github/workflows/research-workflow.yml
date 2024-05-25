@@ -14,25 +14,17 @@ jobs:
         steps:
             - name: Checkout repository
               uses: actions/checkout@v3
-              with:
-                  node-version: "20"
 
             - name: Set up Node.js
               uses: actions/setup-node@v3
-              with:
-                  node-version: "20"
 
             - name: Install dependencies
-              run: npm install
+              run: npm ci
 
             - name: Run script to update README
               run: node add-research.js
 
-            - name: Commit and push changes
-              uses: stefanzweifel/git-auto-commit-action@v4
-              with:
-                  commit_message: "Update README with new research"
-                  branch: main
-                  file_pattern: README.md
+            - name: Commit and push new README file to repo
+              uses: mikeal/publish-to-github-action@master
               env:
                   GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
