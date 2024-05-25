@@ -31,13 +31,3 @@
 </p>
 
 <p align="center"><img src="https://github-readme-streak-stats.herokuapp.com/?user=trdat1111&" alt="trdat1111" /></p>
-
-## Recent Researches
-
-### YouTube Videos
-
--   [Leetcode 2597](https://www.youtube.com/watch?v=Dle_SpjHTio)
-
-### Blog Posts
-
--   [CI/CD using RSS website](https://github.com/gautamkrishnar/blog-post-workflow#popular-sources)
