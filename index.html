@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Research Input Form</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                max-width: 600px;
+                margin: 50px auto;
+                padding: 20px;
+                border: 1px solid #ccc;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+            h1 {
+                text-align: center;
+            }
+            .form-group {
+                margin-bottom: 15px;
+            }
+            label {
+                display: block;
+                margin-bottom: 5px;
+            }
+            input[type="url"],
+            input[type="text"] {
+                width: 100%;
+                padding: 8px;
+                box-sizing: border-box;
+            }
+            button {
+                display: block;
+                width: 100%;
+                padding: 10px;
+                background-color: #28a745;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                font-size: 16px;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: #218838;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Input Recent Researches</h1>
+        <form id="researchForm">
+            <div class="form-group">
+                <label for="youtubeVideoUrl">YouTube Video URL:</label>
+                <input
+                    type="url"
+                    id="youtubeVideoUrl"
+                    name="youtubeVideoUrl"
+                    placeholder="https://www.youtube.com/watch?v=video_id"
+                />
+            </div>
+            <div class="form-group">
+                <label for="youtubeVideoTitle">YouTube Video Title:</label>
+                <input
+                    type="text"
+                    id="youtubeVideoTitle"
+                    name="youtubeVideoTitle"
+                    placeholder="Enter YouTube Video Title"
+                />
+            </div>
+            <div class="form-group">
+                <label for="blogPostUrl">Blog Post URL:</label>
+                <input type="url" id="blogPostUrl" name="blogPostUrl" placeholder="https://blog.example.com/post_id" />
+            </div>
+            <div class="form-group">
+                <label for="blogPostTitle">Blog Post Title:</label>
+                <input type="text" id="blogPostTitle" name="blogPostTitle" placeholder="Enter Blog Post Title" />
+            </div>
+            <button type="button" onclick="updateReadme()">Add to Recent Researches</button>
+        </form>
+
+        <h2>Recent Researches</h2>
+        <div id="recentResearches">
+            <h3>YouTube Videos</h3>
+            <ul id="youtubeList"></ul>
+            <h3>Blog Posts</h3>
+            <ul id="blogList"></ul>
+        </div>
+
+        <script type="module" src="add-research.js"></script>
+    </body>
+</html>

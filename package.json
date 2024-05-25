@@ -1,0 +1,12 @@
+{
+  "name": "trdat1111",
+  "version": "1.0.0",
+  "description": "![GitHub Profile Masterhead](https://repository-images.githubusercontent.com/588181932/e36ec678-7984-4cdd-8e4c-a3932772ff8e)",
+  "main": "add-research.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

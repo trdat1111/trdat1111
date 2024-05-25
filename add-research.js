@@ -1,26 +1,44 @@
 const fs = require("fs");
 
-// Example data sources
-const youtubeLinks = ["https://www.youtube.com/watch?v=Dle_SpjHTio", "https://www.youtube.com/watch?v=xo7XrRVxH8Y"];
-
-const blogLinks = [
-    "https://github.com/gautamkrishnar/blog-post-workflow#popular-sources",
-    "https://bytebytego.com/courses/system-design-interview/design-youtube",
-];
-
 async function updateReadme() {
+    const youtubeUrl = document.getElementById("youtubeVideoUrl").value;
+    const youtubeTitle = document.getElementById("youtubeVideoTitle").value;
+    const blogUrl = document.getElementById("blogPostUrl").value;
+    const blogTitle = document.getElementById("blogPostTitle").value;
+
+    // Find the existing sections for YouTube Videos and Blog Posts
+    const youtubeRegex = /### YouTube Videos\n([\s\S]*?)(?=\n### |\n## |\n$)/;
+    const blogRegex = /### Blog Posts\n([\s\S]*?)(?=\n## |\n$)/;
+
     let readmeContent = fs.readFileSync("README.md", "utf8");
 
-    // Add YouTube videos and blog posts
-    const youtubeSection = `## Latest YouTube Videos\n${youtubeLinks
-        .map((link) => `- [Watch Video](${link})`)
-        .join("\n")}\n\n`;
-    const blogSection = `## Latest Blog Posts\n${blogLinks.map((link) => `- [Read Post](${link})`).join("\n")}\n\n`;
+    if (youtubeUrl && youtubeTitle) {
+        const updatedYouTubeSection = readmeContent.replace(youtubeRegex, (match, p1) => {
+            return `${match}\n- [${youtubeTitle}](${youtubeUrl})\n`;
+        });
 
-    // Update the README content
-    readmeContent = `${youtubeSection}${blogSection}${readmeContent}`;
+        fs.writeFileSync("README.md", updatedYouTubeSection);
 
-    fs.writeFileSync("README.md", readmeContent);
+        const youtubeList = document.getElementById("youtubeList");
+        const listItem = document.createElement("li");
+        listItem.innerHTML = `<a href="${youtubeUrl}" target="_blank">${youtubeTitle}</a>`;
+        youtubeList.appendChild(listItem);
+    }
+
+    if (blogUrl && blogTitle) {
+        const updatedBlogSection = readmeContent.replace(blogRegex, (match, p1) => {
+            return `${match}\n- [${newBlogPost.title}](${newBlogPost.url})\n`;
+        });
+
+        fs.writeFileSync("README.md", updatedBlogSection);
+
+        const blogList = document.getElementById("blogList");
+        const listItem = document.createElement("li");
+        listItem.innerHTML = `<a href="${blogUrl}" target="_blank">${blogTitle}</a>`;
+        blogList.appendChild(listItem);
+    }
+
+    document.getElementById("researchForm").reset();
 }
 
-updateReadme();
+// updateReadme(newYouTubeVideo, newBlogPost);
