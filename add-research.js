@@ -1,33 +1,30 @@
 const fs = require("fs");
 
-const newYouTubeVideo = {
-    title: "New JavaScript Tips",
-    url: "https://sáasasasasasaddawww.youtube.com/watch?v=newvideo",
-};
 const newBlogPost = { title: "Understanding Async/Await", url: "https://blog.example.com/newpost" };
 
-async function updateReadme(newYouTubeVideo, newBlogPost) {
+async function updateReadme(newData) {
     let readmeContent = fs.readFileSync("README.md", "utf8");
 
-    // Find the existing sections for YouTube Videos and Blog Posts
-    const youtubeRegex = /### YouTube Videos\n([\s\S]*?)(?=\n### |\n## |\n$)/;
-    const blogRegex = /### Blog Posts\n([\s\S]*?)(?=\n## |\n$)/;
+    const researchSectionRegex = /## Recent Researches\n([\s\S]*?)(?=\n## |\n$)/;
+    const match = readmeContent.match(researchSectionRegex);
 
-    if (newYouTubeVideo) {
-        const updatedYouTubeSection = readmeContent.replace(youtubeRegex, (match, p1) => {
-            return `${match}\n- [${newYouTubeVideo.title}](${newYouTubeVideo.url})\n`;
-        });
+    if (match) {
+        const existingResearchContent = match[1];
+        const newResearchEntry = `- [${newData.title}](${newData.url})\n`;
 
-        fs.writeFileSync("README.md", updatedYouTubeSection);
-    }
+        // Append the new research entry
+        const updatedResearchContent = `${existingResearchContent}\n${newResearchEntry}`;
 
-    if (newBlogPost) {
-        const updatedBlogSection = readmeContent.replace(blogRegex, (match, p1) => {
-            return `${match}\n- [${newBlogPost.title}](${newBlogPost.url})\n`;
-        });
+        // Replace the old research section with the updated one
+        const updatedReadmeContent = readmeContent.replace(
+            researchSectionRegex,
+            `## Recent Researches\n${updatedResearchContent}`
+        );
 
-        fs.writeFileSync("README.md", updatedBlogSection);
+        fs.writeFileSync("README.md", updatedReadmeContent, "utf8");
+    } else {
+        console.error("No '## Recent Researches' section found in README.md.");
     }
 }
 
-updateReadme(newYouTubeVideo, newBlogPost);
+updateReadme(newBlogPost);
