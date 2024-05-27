@@ -31,3 +31,9 @@
 </p>
 
 <p align="center"><img src="https://github-readme-streak-stats.herokuapp.com/?user=trdat1111&" alt="trdat1111" /></p>
+
+## Recent Researches
+
+-   [Understanding Async/Await](https://blog.example.com/newpost)
+
+-   [Understanding Async/Await](https://blog.example.com/newpost)
