@@ -1,6 +1,15 @@
 const fs = require("fs");
 
-const newBlogPost = { title: "Understanding Async/Await", url: "https://blog.example.com/newpost" };
+const dataInput = process.env.INPUT_DATA;
+let data;
+
+try {
+    data = JSON.parse(dataInput);
+    console.log("🚀 ~ data:", data);
+} catch (error) {
+    console.error("Error parsing input data:", error);
+    process.exit(1);
+}
 
 async function updateReadme(newData) {
     let readmeContent = fs.readFileSync("README.md", "utf8");
@@ -10,7 +19,11 @@ async function updateReadme(newData) {
 
     if (match) {
         const existingResearchContent = match[1];
-        const newResearchEntry = `- [${newData.title}](${newData.url})\n`;
+        const newResearchEntry = "";
+
+        if (Array.isArray(newData)) {
+            newResearchEntry = newData.map((data) => `- [${data.title}](${data.url})`);
+        } else newResearchEntry = `- [${newData.title}](${newData.url})\n`;
 
         // Append the new research entry
         const updatedResearchContent = `${existingResearchContent}\n${newResearchEntry}`;
@@ -27,4 +40,6 @@ async function updateReadme(newData) {
     }
 }
 
-updateReadme(newBlogPost);
+const newBlogPost = { title: "Understanding Async/Await", url: "https://blog.example.com/newpost" };
+
+updateReadme(data);

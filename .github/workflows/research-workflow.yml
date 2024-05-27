@@ -7,6 +7,10 @@ on:
         branches:
             - update-readme
     workflow_dispatch:
+        inputs:
+            data:
+                description: "JSON string containing research data"
+                required: true
 
 jobs:
     update-readme:
@@ -30,6 +34,14 @@ jobs:
             - name: Run script to update README
               run: node add-research.js
 
+            - name: Install GitHub CLI
+              run: sudo apt-get install gh
+
+            - name: Unset GH_TOKEN
+              run: unset GH_TOKEN
+
+            - name: Authenticate with GitHub CLI
+              run: echo "${{ secrets.GH_TOKEN }}" | gh auth login --with-token
             - name: Create new branch, commit, and push changes
               env:
                   GH_TOKEN: ${{ secrets.GH_TOKEN }}
@@ -40,15 +52,6 @@ jobs:
                   git add README.md
                   git commit -m "Update README with latest research"
                   git push https://github-actions:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git update-readme
-
-            - name: Install GitHub CLI
-              run: sudo apt-get install gh
-
-            - name: Unset GH_TOKEN
-              run: unset GH_TOKEN
-
-            - name: Authenticate with GitHub CLI
-              run: echo "${{ secrets.GH_TOKEN }}" | gh auth login --with-token
 
             - name: Create Pull Request
               env:
