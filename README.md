@@ -33,3 +33,5 @@
 <p align="center"><img src="https://github-readme-streak-stats.herokuapp.com/?user=trdat1111&" alt="trdat1111" /></p>
 
 ## Recent Researches
+
+-   [New research article](https://example.com/research-article)

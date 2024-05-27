@@ -11,7 +11,6 @@ let data;
 
 try {
     data = JSON.parse(dataInput);
-    console.log("🚀 ~ data:", data);
 } catch (error) {
     console.error("Error parsing input data:", error);
     process.exit(1);
@@ -25,14 +24,14 @@ async function updateReadme(newData) {
 
     if (match) {
         const existingResearchContent = match[1];
-        const newResearchEntry = "";
+        let newResearchEntry = "";
 
         if (Array.isArray(newData)) {
-            newResearchEntry = newData.map((data) => `- [${data.title}](${data.url})`);
-        } else newResearchEntry = `- [${newData.title}](${newData.url})\n`;
+            newData.forEach((data) => (newResearchEntry += `\n- [${data.title}](${data.url})\n`));
+        } else newResearchEntry = `\n- [${newData.title}](${newData.url})`;
 
         // Append the new research entry
-        const updatedResearchContent = `${existingResearchContent}\n${newResearchEntry}`;
+        const updatedResearchContent = `${newResearchEntry}\n${existingResearchContent}`;
 
         // Replace the old research section with the updated one
         const updatedReadmeContent = readmeContent.replace(
@@ -45,7 +44,5 @@ async function updateReadme(newData) {
         console.error("No '## Recent Researches' section found in README.md.");
     }
 }
-
-const newBlogPost = { title: "Understanding Async/Await", url: "https://blog.example.com/newpost" };
 
 updateReadme(data);
