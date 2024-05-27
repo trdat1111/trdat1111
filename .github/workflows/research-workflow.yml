@@ -32,6 +32,8 @@ jobs:
               run: npm install
 
             - name: Run script to update README
+              env:
+                  INPUT_DATA: ${{ github.event.inputs.data }}
               run: node add-research.js
 
             - name: Install GitHub CLI

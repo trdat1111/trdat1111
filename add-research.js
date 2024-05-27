@@ -1,6 +1,12 @@
 const fs = require("fs");
 
 const dataInput = process.env.INPUT_DATA;
+
+if (!dataInput) {
+    console.error("Input data is required");
+    process.exit(1);
+}
+
 let data;
 
 try {
