@@ -34,11 +34,4 @@
 
 ## Recent Researches
 
-- [Article 3](https://example.com/article-3)
-
-- [Article4](https://example.com/article-4)
-
-
-- [New research article kk](https://example.com/research-article)
-
--   [New research article](https://example.com/research-article)
+-[Bytebytego design Youtube](https://bytebytego.com/courses/system-design-interview/design-youtube)
