@@ -34,4 +34,6 @@
 
 ## Recent Researches
 
+- [New research article kk](https://example.com/research-article)
+
 -   [New research article](https://example.com/research-article)
