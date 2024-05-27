@@ -12,6 +12,7 @@ jobs:
         runs-on: ubuntu-latest
         permissions:
             contents: write
+            pull-requests: write
 
         steps:
             - name: Checkout repository
@@ -28,12 +29,27 @@ jobs:
             - name: Run script to update README
               run: node add-research.js
 
-            - name: Commit and push changes
+            - name: Create new branch, commit, and push changes
               env:
                   GH_TOKEN: ${{ secrets.GH_TOKEN }}
               run: |
                   git config --global user.name 'github-actions[bot]'
                   git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+                  git checkout -b update-readme
                   git add README.md
                   git commit -m "Update README with latest research"
-                  git push https://github-actions:${{ secrets.GH_TOKEN }}@github.com/trdat1111/trdat1111.git main
+                  git push https://github-actions:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git update-readme
+
+            - name: Create Pull Request
+              env:
+                  GH_TOKEN: ${{ secrets.GH_TOKEN }}
+              run: |
+                  gh auth login --with-token <<< "${{ secrets.GH_TOKEN }}"
+                  gh pr create --base main --head update-readme --title "Update README with latest research" --body "Automated update of README with latest research."
+
+            - name: Merge Pull Request
+              env:
+                  GH_TOKEN: ${{ secrets.GH_TOKEN }}
+              run: |
+                  PR_NUMBER=$(gh pr list --state open --head update-readme --json number --jq '.[0].number')
+                  gh pr merge $PR_NUMBER --merge --delete-branch --admin
