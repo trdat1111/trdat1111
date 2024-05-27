@@ -40,11 +40,18 @@ jobs:
                   git commit -m "Update README with latest research"
                   git push https://github-actions:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git update-readme
 
+            - name: Install GitHub CLI
+              run: sudo apt-get install gh
+
+            - name: Authenticate with GitHub CLI
+              env:
+                  GH_TOKEN: ${{ secrets.GH_TOKEN }}
+              run: echo "${{ secrets.GH_TOKEN }}" | gh auth login --with-token
+
             - name: Create Pull Request
               env:
                   GH_TOKEN: ${{ secrets.GH_TOKEN }}
               run: |
-                  gh auth login --with-token <<< "${{ secrets.GH_TOKEN }}"
                   gh pr create --base main --head update-readme --title "Update README with latest research" --body "Automated update of README with latest research."
 
             - name: Merge Pull Request
