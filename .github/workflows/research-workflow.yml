@@ -1,8 +1,8 @@
 name: Update README with Research
 
 on:
-    # schedule:
-    #     - cron: "0 0 * * *" # Runs daily at midnight
+    schedule:
+        - cron: "0 0 * * *" # Runs daily at midnight
     push:
         branches:
             - main
@@ -15,18 +15,20 @@ jobs:
             - name: Checkout repository
               uses: actions/checkout@v3
 
-            - name: Set up Node.js
+            - name: Setup Node.js
               uses: actions/setup-node@v3
               with:
                   node-version: "20"
 
             - name: Install dependencies
-              run: npm install
+              run: npm ci
 
             - name: Run script to update README
               run: node add-research.js
 
             - name: Commit and push changes
+              env:
+                  GH_TOKEN: ${{ secrets.GH_TOKEN }}
               run: |
                   git config --global user.name 'github-actions[bot]'
                   git config --global user.email 'github-actions[bot]@users.noreply.github.com'
