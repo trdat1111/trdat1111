@@ -44,9 +44,10 @@ jobs:
             - name: Install GitHub CLI
               run: sudo apt-get install gh
 
+            - name: Unset GH_TOKEN
+              run: unset GH_TOKEN
+
             - name: Authenticate with GitHub CLI
-              env:
-                  GH_TOKEN: ${{ secrets.GH_TOKEN }}
               run: echo "${{ secrets.GH_TOKEN }}" | gh auth login --with-token
 
             - name: Create Pull Request
