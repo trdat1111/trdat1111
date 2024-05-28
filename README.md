@@ -33,6 +33,11 @@
 
 ## Recent Researches
 
+- [Article 5](https://example.com/article-5)
+
+- [Article 6](https://example.com/article-6)
+
+
 - [Leetcode 2597 walkthrough](https://example.com/research)
 
 
