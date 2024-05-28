@@ -1,13 +1,12 @@
 ![GitHub Profile Masterhead](https://repository-images.githubusercontent.com/588181932/e36ec678-7984-4cdd-8e4c-a3932772ff8e)
 
-<h1 align="center">Hi, I'm Dat 👋</h1>
-<h3 align="center">I'm a full-stack developer with over 2 years of experience in the JavaScript/TypeScript ecosystem and database optimization, including Oracle. Skilled in system design and adept at articulating technical concepts clearly. Strong written and verbal communication skills in English. Quick to learn and adapt to new technologies. Achieved Adventurer rank on Trailhead Salesforce.</h3>
+<h3 align="center">Full-stack developer with over 2 years of experience in the JavaScript/TypeScript ecosystem and database optimization, including Oracle. Skilled in system design and adept at articulating technical concepts clearly. Strong written and verbal communication skills in English. Quick to learn and adapt to new technologies. Achieved Adventurer rank on Trailhead Salesforce.</h3>
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=trdat1111&label=Profile%20views&color=0e75b6&style=flat" alt="trdat1111" /> </p>
 
 -   📝 I regularly write articles on [My Linkedin](https://www.linkedin.com/in/nguyendat1111)
 
--   📫 How to reach me **ntrongdat1111@gmail.com**
+-   📫 Reach me at **ntrongdat1111@gmail.com**
 
 -   🌱 I’m currently working on **System Design, Databases, and Algorithm**
 

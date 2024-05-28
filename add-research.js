@@ -28,7 +28,10 @@ async function updateReadme(newData) {
 
         if (Array.isArray(newData)) {
             newData.forEach((data) => (newResearchEntry += `\n- [${data.title}](${data.url})\n`));
-        } else newResearchEntry = `\n- [${newData.title}](${newData.url})`;
+        } else {
+            console.error("Invalid data type, must be array!");
+            process.exit(1);
+        }
 
         // Append the new research entry
         const updatedResearchContent = `${newResearchEntry}\n${existingResearchContent}`;
@@ -42,6 +45,7 @@ async function updateReadme(newData) {
         fs.writeFileSync("README.md", updatedReadmeContent, "utf8");
     } else {
         console.error("No '## Recent Researches' section found in README.md.");
+        process.exit(1);
     }
 }
 
