@@ -33,23 +33,4 @@
 
 ## Recent Researches
 
-- [LAST TEST ATTEMPT!](https://example.com/research)
-
-
-- [RUNNING TEST URL](https://example.com/research)
-
-
-- [Article 5](https://example.com/article-5)
-
-- [Article 6](https://example.com/article-6)
-
-
-- [Leetcode 2597 walkthrough](https://example.com/research)
-
-
-- [Leetcode 2597 walkthrough](https://example.com/research)
-
-- [test2](https://test.com)
-
-
--[Bytebytego design Youtube](https://bytebytego.com/courses/system-design-interview/design-youtube)
+-   [Bytebytego design Youtube](https://bytebytego.com/courses/system-design-interview/design-youtube)
