@@ -33,4 +33,7 @@
 
 ## Recent Researches
 
+- [Manage cron-job in large system - Slack](https://viblo.asia/p/he-thong-lon-se-quan-ly-cron-job-nhu-the-nao-bai-hoc-thuc-te-tu-slack-GyZJZjRkJjm)
+
+
 -   [Bytebytego design Youtube](https://bytebytego.com/courses/system-design-interview/design-youtube)
