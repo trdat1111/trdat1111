@@ -34,7 +34,13 @@ async function updateReadme(newData) {
         }
 
         // Append the new research entry
-        const updatedResearchContent = `${newResearchEntry}\n${existingResearchContent}`;
+        let updatedResearchContent = `${newResearchEntry}\n${existingResearchContent}`;
+
+        // List exceed 7 bullet points
+        const listResearchContent = updatedResearchContent.split("\n").filter((line) => line.trim().length > 0);
+        if (listResearchContent.length > 7) {
+            updatedResearchContent = updatedResearchContent.replace(listResearchContent.at(-1), "").trim();
+        }
 
         // Replace the old research section with the updated one
         const updatedReadmeContent = readmeContent.replace(
