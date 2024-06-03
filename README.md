@@ -33,6 +33,9 @@
 
 ## Recent Researches
 
+- [HATEOAS and htmx library](https://en.wikipedia.org/wiki/HATEOAS#:~:text=Hypermedia%20as%20the%20engine%20of,provide%20information%20dynamically%20through%20hypermedia.)
+
+
 - [Algorithm: AVL tree](https://www.geeksforgeeks.org/introduction-to-avl-tree/)
 
 
