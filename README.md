@@ -33,6 +33,9 @@
 
 ## Recent Researches
 
+- [My article: Installing Oracle on MacOS](https://www.linkedin.com/posts/nguyendat1111_oracle-wecommit100xshare-activity-7206210658806239232-JpZi?utm_source=share&utm_medium=member_desktop)
+
+
 - [PostgreSQL & MySQL performance ](https://www.uber.com/en-VN/blog/postgres-to-mysql-migration/)
 
 
