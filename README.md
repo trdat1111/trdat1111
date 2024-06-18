@@ -33,6 +33,9 @@
 
 ## Recent Researches
 
+- [AWS S3 security problem](https://tracebit.com/blog/how-to-find-the-aws-account-id-of-any-s3-bucket)
+
+
 - [My article: Installing Oracle on MacOS](https://www.linkedin.com/posts/nguyendat1111_oracle-wecommit100xshare-activity-7206210658806239232-JpZi?utm_source=share&utm_medium=member_desktop)
 
 
