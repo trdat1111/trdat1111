@@ -32,6 +32,8 @@
 <p align="center"><img src="https://github-readme-streak-stats.herokuapp.com/?user=trdat1111&" alt="trdat1111" /></p>
 
 ## Recent Researches
+- [Shopify change UUID to ULID to improve performance ](https://shopify.engineering/building-resilient-payment-systems)
+
 
 - [AWS S3 security problem](https://tracebit.com/blog/how-to-find-the-aws-account-id-of-any-s3-bucket)
 
@@ -49,5 +51,3 @@
 
 
 -   [Manage cron-job in large system - Slack](https://viblo.asia/p/he-thong-lon-se-quan-ly-cron-job-nhu-the-nao-bai-hoc-thuc-te-tu-slack-GyZJZjRkJjm)
-
--   [Bytebytego design Youtube](https://bytebytego.com/courses/system-design-interview/design-youtube)
