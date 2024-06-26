@@ -32,6 +32,8 @@
 <p align="center"><img src="https://github-readme-streak-stats.herokuapp.com/?user=trdat1111&" alt="trdat1111" /></p>
 
 ## Recent Researches
+- [My test on EFSET English](https://cert.efset.org/C6YBdK)
+
 - [Shopify change UUID to ULID to improve performance ](https://shopify.engineering/building-resilient-payment-systems)
 
 
@@ -48,6 +50,3 @@
 
 
 - [Algorithm: AVL tree](https://www.geeksforgeeks.org/introduction-to-avl-tree/)
-
-
--   [Manage cron-job in large system - Slack](https://viblo.asia/p/he-thong-lon-se-quan-ly-cron-job-nhu-the-nao-bai-hoc-thuc-te-tu-slack-GyZJZjRkJjm)
