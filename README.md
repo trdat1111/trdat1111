@@ -32,6 +32,8 @@
 <p align="center"><img src="https://github-readme-streak-stats.herokuapp.com/?user=trdat1111&" alt="trdat1111" /></p>
 
 ## Recent Researches
+- [The T-shaped engineer](https://alexkondov.com/the-t-shaped-engineer/)
+
 - [My test on EFSET English](https://cert.efset.org/C6YBdK)
 
 - [Shopify change UUID to ULID to improve performance ](https://shopify.engineering/building-resilient-payment-systems)
@@ -47,6 +49,3 @@
 
 
 - [HATEOAS and htmx library](https://en.wikipedia.org/wiki/HATEOAS#:~:text=Hypermedia%20as%20the%20engine%20of,provide%20information%20dynamically%20through%20hypermedia.)
-
-
-- [Algorithm: AVL tree](https://www.geeksforgeeks.org/introduction-to-avl-tree/)
