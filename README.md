@@ -32,6 +32,8 @@
 <p align="center"><img src="https://github-readme-streak-stats.herokuapp.com/?user=trdat1111&" alt="trdat1111" /></p>
 
 ## Recent Researches
+- [ORMs in Golang is not best practice](https://www.reddit.com/r/golang/comments/13erxsv/why_orms_are_so_hated/)
+
 - [The T-shaped engineer](https://alexkondov.com/the-t-shaped-engineer/)
 
 - [My test on EFSET English](https://cert.efset.org/C6YBdK)
@@ -46,6 +48,3 @@
 
 
 - [PostgreSQL & MySQL performance ](https://www.uber.com/en-VN/blog/postgres-to-mysql-migration/)
-
-
-- [HATEOAS and htmx library](https://en.wikipedia.org/wiki/HATEOAS#:~:text=Hypermedia%20as%20the%20engine%20of,provide%20information%20dynamically%20through%20hypermedia.)
