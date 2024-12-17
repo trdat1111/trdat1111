@@ -32,6 +32,8 @@
 <p align="center"><img src="https://github-readme-streak-stats.herokuapp.com/?user=trdat1111&" alt="trdat1111" /></p>
 
 ## Recent Researches
+- [Micro frontend architect design](https://viblo.asia/p/micro-frontend-architect-design-moi-hay-ganh-nang-GAWVpdGXV05)
+
 - [ORMs in Golang is not best practice](https://www.reddit.com/r/golang/comments/13erxsv/why_orms_are_so_hated/)
 
 - [The T-shaped engineer](https://alexkondov.com/the-t-shaped-engineer/)
@@ -45,6 +47,3 @@
 
 
 - [My article: Installing Oracle on MacOS](https://www.linkedin.com/posts/nguyendat1111_oracle-wecommit100xshare-activity-7206210658806239232-JpZi?utm_source=share&utm_medium=member_desktop)
-
-
-- [PostgreSQL & MySQL performance ](https://www.uber.com/en-VN/blog/postgres-to-mysql-migration/)
