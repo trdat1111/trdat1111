@@ -32,6 +32,8 @@
 <p align="center"><img src="https://github-readme-streak-stats.herokuapp.com/?user=trdat1111&" alt="trdat1111" /></p>
 
 ## Recent Researches
+- [SSE implementation in Go](https://medium.com/@rian.eka.cahya/server-sent-event-sse-with-go-10592d9c2aa1)
+
 - [Micro frontend architect design](https://viblo.asia/p/micro-frontend-architect-design-moi-hay-ganh-nang-GAWVpdGXV05)
 
 - [ORMs in Golang is not best practice](https://www.reddit.com/r/golang/comments/13erxsv/why_orms_are_so_hated/)
@@ -44,6 +46,3 @@
 
 
 - [AWS S3 security problem](https://tracebit.com/blog/how-to-find-the-aws-account-id-of-any-s3-bucket)
-
-
-- [My article: Installing Oracle on MacOS](https://www.linkedin.com/posts/nguyendat1111_oracle-wecommit100xshare-activity-7206210658806239232-JpZi?utm_source=share&utm_medium=member_desktop)
