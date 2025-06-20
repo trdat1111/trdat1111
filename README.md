@@ -32,6 +32,8 @@
 <p align="center"><img src="https://github-readme-streak-stats.herokuapp.com/?user=trdat1111&" alt="trdat1111" /></p>
 
 ## Recent Researches
+- [JavaScript Animation Engine](https://api.daily.dev/r/9pqZiNBcV)
+
 - [undefined](undefined)
 
 - [undefined](undefined)
@@ -43,5 +45,3 @@
 - [ORMs in Golang is not best practice](https://www.reddit.com/r/golang/comments/13erxsv/why_orms_are_so_hated/)
 
 - [The T-shaped engineer](https://alexkondov.com/the-t-shaped-engineer/)
-
-- [My test on EFSET English](https://cert.efset.org/C6YBdK)
