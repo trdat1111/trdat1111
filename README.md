@@ -33,6 +33,9 @@
 
 ## Recent Researches
 
+- [Master React by Building 25 Projects](https://api.daily.dev/r/qq5l77Imx)
+
+
 -   [JavaScript Animation Engine](https://api.daily.dev/r/9pqZiNBcV)
 
 -   [SSE implementation in Go](https://medium.com/@rian.eka.cahya/server-sent-event-sse-with-go-10592d9c2aa1)
