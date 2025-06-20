@@ -34,6 +34,8 @@
 ## Recent Researches
 - [undefined](undefined)
 
+- [undefined](undefined)
+
 - [SSE implementation in Go](https://medium.com/@rian.eka.cahya/server-sent-event-sse-with-go-10592d9c2aa1)
 
 - [Micro frontend architect design](https://viblo.asia/p/micro-frontend-architect-design-moi-hay-ganh-nang-GAWVpdGXV05)
@@ -43,5 +45,3 @@
 - [The T-shaped engineer](https://alexkondov.com/the-t-shaped-engineer/)
 
 - [My test on EFSET English](https://cert.efset.org/C6YBdK)
-
-- [Shopify change UUID to ULID to improve performance ](https://shopify.engineering/building-resilient-payment-systems)
