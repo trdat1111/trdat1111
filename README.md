@@ -32,16 +32,13 @@
 <p align="center"><img src="https://github-readme-streak-stats.herokuapp.com/?user=trdat1111&" alt="trdat1111" /></p>
 
 ## Recent Researches
-- [JavaScript Animation Engine](https://api.daily.dev/r/9pqZiNBcV)
 
-- [undefined](undefined)
+-   [JavaScript Animation Engine](https://api.daily.dev/r/9pqZiNBcV)
 
-- [undefined](undefined)
+-   [SSE implementation in Go](https://medium.com/@rian.eka.cahya/server-sent-event-sse-with-go-10592d9c2aa1)
 
-- [SSE implementation in Go](https://medium.com/@rian.eka.cahya/server-sent-event-sse-with-go-10592d9c2aa1)
+-   [Micro frontend architect design](https://viblo.asia/p/micro-frontend-architect-design-moi-hay-ganh-nang-GAWVpdGXV05)
 
-- [Micro frontend architect design](https://viblo.asia/p/micro-frontend-architect-design-moi-hay-ganh-nang-GAWVpdGXV05)
+-   [ORMs in Golang is not best practice](https://www.reddit.com/r/golang/comments/13erxsv/why_orms_are_so_hated/)
 
-- [ORMs in Golang is not best practice](https://www.reddit.com/r/golang/comments/13erxsv/why_orms_are_so_hated/)
-
-- [The T-shaped engineer](https://alexkondov.com/the-t-shaped-engineer/)
+-   [The T-shaped engineer](https://alexkondov.com/the-t-shaped-engineer/)
