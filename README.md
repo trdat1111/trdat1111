@@ -33,6 +33,9 @@
 
 ## Recent Researches
 
+- [The Micro-Frontend Architecture Handbook](https://api.daily.dev/r/NY57EYZSG)
+
+
 - [Master React by Building 25 Projects](https://api.daily.dev/r/qq5l77Imx)
 
 
