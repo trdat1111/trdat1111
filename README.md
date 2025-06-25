@@ -34,6 +34,8 @@
 ## Recent Researches
 - [Shopify Tech Stack](https://api.daily.dev/r/QRG5vP9zQ)
 
+- [Shopify Tech Stack](https://api.daily.dev/r/QRG5vP9zQ)
+
 
 - [The Micro-Frontend Architecture Handbook](https://api.daily.dev/r/NY57EYZSG)
 
@@ -46,5 +48,3 @@
 -   [SSE implementation in Go](https://medium.com/@rian.eka.cahya/server-sent-event-sse-with-go-10592d9c2aa1)
 
 -   [Micro frontend architect design](https://viblo.asia/p/micro-frontend-architect-design-moi-hay-ganh-nang-GAWVpdGXV05)
-
--   [ORMs in Golang is not best practice](https://www.reddit.com/r/golang/comments/13erxsv/why_orms_are_so_hated/)
