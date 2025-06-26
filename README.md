@@ -32,6 +32,8 @@
 <p align="center"><img src="https://github-readme-streak-stats.herokuapp.com/?user=trdat1111&" alt="trdat1111" /></p>
 
 ## Recent Researches
+- [(comic) Urgent Important Matrix](https://api.daily.dev/r/nbjDrivTi)
+
 - [Shopify Tech Stack](https://api.daily.dev/r/QRG5vP9zQ)
 
 - [Shopify Tech Stack](https://api.daily.dev/r/QRG5vP9zQ)
@@ -46,5 +48,3 @@
 -   [JavaScript Animation Engine](https://api.daily.dev/r/9pqZiNBcV)
 
 -   [SSE implementation in Go](https://medium.com/@rian.eka.cahya/server-sent-event-sse-with-go-10592d9c2aa1)
-
--   [Micro frontend architect design](https://viblo.asia/p/micro-frontend-architect-design-moi-hay-ganh-nang-GAWVpdGXV05)
