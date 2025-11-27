@@ -32,6 +32,8 @@
 <p align="center"><img src="https://github-readme-streak-stats.herokuapp.com/?user=trdat1111&" alt="trdat1111" /></p>
 
 ## Recent Researches
+- [OpenAI API user data exposed in Mixpanel security breach](https://www.dqindia.com/news/openai-api-user-data-exposed-in-mixpanel-security-breach-10816218)
+
 - [(comic) Urgent Important Matrix](https://api.daily.dev/r/nbjDrivTi)
 
 - [Shopify Tech Stack](https://api.daily.dev/r/QRG5vP9zQ)
@@ -42,8 +44,3 @@
 
 
 - [Master React by Building 25 Projects](https://api.daily.dev/r/qq5l77Imx)
-
-
--   [JavaScript Animation Engine](https://api.daily.dev/r/9pqZiNBcV)
-
--   [SSE implementation in Go](https://medium.com/@rian.eka.cahya/server-sent-event-sse-with-go-10592d9c2aa1)
