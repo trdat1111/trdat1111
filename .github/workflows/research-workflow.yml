@@ -1,133 +1,270 @@
-name: Auto-Update README with Tech Articles
+name: 🤖 Auto-Fetch Tech Articles
 
+# Random daily execution between 9am-6pm UTC
 on:
-    schedule:
-        - cron: "0 8 * * *" # Runs daily at 8 AM UTC (3 PM Vietnam time)
-    push:
-        branches:
-            - update-readme
-    workflow_dispatch:
-        inputs:
-            data:
-                description: "JSON string containing research data (optional - leave empty for auto-fetch)"
-                required: false
+  schedule:
+    # Multiple cron entries to simulate random execution during business hours
+    # These will trigger at different hours (9am-6pm UTC), creating randomness
+    - cron: '15 9 * * *'   # 9:15 AM UTC
+    - cron: '45 10 * * *'  # 10:45 AM UTC  
+    - cron: '30 12 * * *'  # 12:30 PM UTC
+    - cron: '20 14 * * *'  # 2:20 PM UTC
+    - cron: '10 16 * * *'  # 4:10 PM UTC
+    - cron: '35 18 * * *'  # 6:35 PM UTC
+  
+  # Manual triggers for testing
+  push:
+    branches: [update-readme]
+  
+  workflow_dispatch:
+    inputs:
+      data:
+        description: "Optional JSON array of articles (leave empty for auto-fetch)"
+        required: false
+        type: string
+      force_run:
+        description: "Force run even if recently executed"
+        required: false
+        type: boolean
+        default: false
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
 jobs:
-    update-readme:
-        runs-on: ubuntu-latest
-        permissions:
-            contents: write
-            pull-requests: write
+  update-articles:
+    name: "Fetch & Update Articles"
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+      pull-requests: write
+      actions: read
+    
+    steps:
+      - name: 🛡️ Check Rate Limiting
+        id: rate_limit
+        run: |
+          # Prevent multiple runs within 4 hours (unless forced)
+          if [ "${{ github.event.inputs.force_run }}" = "true" ]; then
+            echo "🚀 Force run enabled, skipping rate limit check"
+            echo "should_run=true" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          
+          # Check last successful run time
+          LAST_RUN=$(gh api repos/${{ github.repository }}/actions/workflows/research-workflow.yml/runs \
+            --jq '.workflow_runs[] | select(.conclusion == "success") | .created_at' | head -1)
+          
+          if [ -z "$LAST_RUN" ]; then
+            echo "📅 No previous runs found, proceeding..."
+            echo "should_run=true" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          
+          # Calculate hours since last run
+          LAST_EPOCH=$(date -d "$LAST_RUN" +%s)
+          CURRENT_EPOCH=$(date +%s)
+          HOURS_DIFF=$(( ($CURRENT_EPOCH - $LAST_EPOCH) / 3600 ))
+          
+          if [ $HOURS_DIFF -ge 4 ]; then
+            echo "⏰ Last run was ${HOURS_DIFF} hours ago, proceeding..."
+            echo "should_run=true" >> $GITHUB_OUTPUT
+          else
+            echo "⏸️ Last run was only ${HOURS_DIFF} hours ago, skipping to avoid spam"
+            echo "should_run=false" >> $GITHUB_OUTPUT
+          fi
 
-        steps:
-            - name: Checkout repository
-              uses: actions/checkout@v3
+      - name: ⏭️ Skip Execution
+        if: steps.rate_limit.outputs.should_run == 'false'
+        run: |
+          echo "🔄 Execution skipped due to rate limiting"
+          echo "Next eligible run: in $(( 4 - $HOURS_DIFF )) hours"
+          exit 0
 
-            - name: Setup Node.js
-              uses: actions/setup-node@v3
-              with:
-                  node-version: "20"
+      - name: 📦 Checkout Repository  
+        if: steps.rate_limit.outputs.should_run == 'true'
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          token: ${{ secrets.GH_TOKEN }}
 
-            - name: Run script to update README
-              env:
-                  INPUT_DATA: ${{ github.event.inputs.data || '' }}
-              run: node add-research.js
+      - name: 🟢 Setup Node.js
+        if: steps.rate_limit.outputs.should_run == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
 
-            - name: Install GitHub CLI
-              run: sudo apt-get install gh
+      - name: 🔍 Fetch Articles
+        if: steps.rate_limit.outputs.should_run == 'true'
+        id: fetch
+        env:
+          INPUT_DATA: ${{ github.event.inputs.data || '' }}
+        run: |
+          echo "🚀 Starting article fetch process..."
+          
+          # Add random delay to spread out execution times
+          DELAY=$((RANDOM % 1800))  # 0-30 minutes random delay
+          echo "⏳ Random delay: ${DELAY} seconds (to spread execution)"
+          sleep $DELAY
+          
+          # Run the optimized script
+          if [ -f "add-research-optimized.js" ]; then
+            echo "📄 Using optimized script..."
+            node add-research-optimized.js
+          else
+            echo "📄 Using standard script..."
+            node add-research.js
+          fi
 
-            - name: Unset GH_TOKEN
-              run: unset GH_TOKEN
+      - name: 🔄 Check for Changes
+        if: steps.rate_limit.outputs.should_run == 'true'
+        id: changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          
+          if git diff --quiet README.md; then
+            echo "📝 No changes detected in README.md"
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "✨ Changes detected in README.md"
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            
+            # Create unique branch name with timestamp
+            TIMESTAMP=$(date +"%Y%m%d-%H%M%S")
+            BRANCH_NAME="auto-articles-${TIMESTAMP}"
+            echo "branch_name=$BRANCH_NAME" >> $GITHUB_OUTPUT
+            
+            # Stage changes
+            git add README.md
+            
+            # Create commit with appropriate message
+            if [ "${{ github.event_name }}" = "schedule" ]; then
+              COMMIT_MSG="🤖 Daily article update ($(date +'%Y-%m-%d %H:%M UTC'))"
+            else
+              COMMIT_MSG="📝 Manual article update"
+            fi
+            
+            # Switch to new branch and commit
+            git checkout -b $BRANCH_NAME
+            git commit -m "$COMMIT_MSG"
+            
+            echo "📝 Created commit: $COMMIT_MSG"
+          fi
 
-            - name: Authenticate with GitHub CLI
-              run: echo "${{ secrets.GH_TOKEN }}" | gh auth login --with-token
-            - name: Check for changes and create branch
-              id: check_changes
-              run: |
-                  git config --global user.name 'github-actions[bot]'
-                  git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-                  
-                  # Check if there are any changes
-                  if git diff --quiet README.md; then
-                      echo "No changes detected in README.md"
-                      echo "changes_detected=false" >> $GITHUB_OUTPUT
-                  else
-                      echo "Changes detected in README.md"
-                      echo "changes_detected=true" >> $GITHUB_OUTPUT
-                      
-                      # Create timestamp for unique branch name
-                      TIMESTAMP=$(date +"%Y%m%d-%H%M%S")
-                      BRANCH_NAME="auto-research-update-$TIMESTAMP"
-                      echo "branch_name=$BRANCH_NAME" >> $GITHUB_OUTPUT
-                      
-                      # Create and switch to new branch
-                      git checkout -b $BRANCH_NAME
-                      git add README.md
-                      
-                      # Create commit message based on trigger
-                      if [ "${{ github.event_name }}" = "schedule" ]; then
-                          COMMIT_MSG="🤖 Auto-update: Daily tech articles ($(date +'%Y-%m-%d'))"
-                      else
-                          COMMIT_MSG="📝 Update README with latest research"
-                      fi
-                      
-                      git commit -m "$COMMIT_MSG"
-                  fi
+      - name: 🚀 Push Changes
+        if: steps.rate_limit.outputs.should_run == 'true' && steps.changes.outputs.has_changes == 'true'
+        run: |
+          git push origin ${{ steps.changes.outputs.branch_name }}
+          echo "📤 Pushed branch: ${{ steps.changes.outputs.branch_name }}"
+
+      - name: 🔀 Create Pull Request
+        if: steps.rate_limit.outputs.should_run == 'true' && steps.changes.outputs.has_changes == 'true'
+        id: create_pr
+        run: |
+          # Dynamic PR content based on trigger
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            PR_TITLE="🤖 Daily Tech Articles - $(date +'%Y-%m-%d')"
+            PR_BODY="## 🔄 Automated Daily Update
+          
+          Fresh tech articles have been automatically curated and added to the profile.
+          
+          ### 📊 Update Details:
+          - **Source**: Automated daily fetch
+          - **Time**: $(date +'%Y-%m-%d %H:%M:%S UTC')  
+          - **Articles**: Latest trending tech content
+          - **Sources**: Dev.to & Hacker News (rotated daily)
+          
+          ### 🎯 Quality Filters Applied:
+          - ✅ Tech relevance scoring
+          - ✅ Engagement threshold filtering  
+          - ✅ Duplicate detection
+          - ✅ Daily source rotation for variety
+          
+          ---
+          *🤖 Generated by automated workflow • [Claude Code](https://claude.ai/code)*"
+          else
+            PR_TITLE="📝 Manual Tech Articles Update"
+            PR_BODY="## 🔧 Manual Update
+          
+          Articles have been manually updated via workflow dispatch.
+          
+          **Triggered by**: Manual execution
+          **Time**: $(date +'%Y-%m-%d %H:%M:%S UTC')
+          
+          ---
+          *🤖 Generated by automated workflow*"
+          fi
+          
+          # Create the PR
+          PR_URL=$(gh pr create \
+            --base main \
+            --head ${{ steps.changes.outputs.branch_name }} \
+            --title "$PR_TITLE" \
+            --body "$PR_BODY")
+          
+          echo "🔗 Created PR: $PR_URL"
+          echo "pr_url=$PR_URL" >> $GITHUB_OUTPUT
+
+      - name: ⚡ Auto-Merge (Scheduled Only)
+        if: |
+          steps.rate_limit.outputs.should_run == 'true' && 
+          steps.changes.outputs.has_changes == 'true' && 
+          github.event_name == 'schedule'
+        run: |
+          # Wait for PR checks to initialize
+          sleep 10
+          
+          # Get PR number from URL
+          PR_NUMBER=$(echo "${{ steps.create_pr.outputs.pr_url }}" | grep -oE '[0-9]+$')
+          
+          if [ -n "$PR_NUMBER" ]; then
+            echo "🔄 Auto-merging PR #$PR_NUMBER..."
+            
+            # Auto-merge with squash
+            gh pr merge $PR_NUMBER \
+              --squash \
+              --delete-branch \
+              --admin \
+              --subject "🤖 Auto-merge: Daily tech articles update"
               
-            - name: Push changes
-              if: steps.check_changes.outputs.changes_detected == 'true'
-              env:
-                  GH_TOKEN: ${{ secrets.GH_TOKEN }}
-              run: |
-                  git push https://github-actions:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git ${{ steps.check_changes.outputs.branch_name }}
+            echo "✅ Successfully auto-merged PR #$PR_NUMBER"
+          else
+            echo "❌ Could not extract PR number from: ${{ steps.create_pr.outputs.pr_url }}"
+            exit 1
+          fi
 
-            - name: Create Pull Request
-              if: steps.check_changes.outputs.changes_detected == 'true'
-              env:
-                  GH_TOKEN: ${{ secrets.GH_TOKEN }}
-              run: |
-                  # Create PR with dynamic content based on trigger
-                  if [ "${{ github.event_name }}" = "schedule" ]; then
-                      PR_TITLE="🤖 Daily Tech Articles Update - $(date +'%Y-%m-%d')"
-                      PR_BODY="## 🚀 Automated Daily Update\n\nThis PR contains fresh tech articles automatically fetched and curated for the README.\n\n### Changes:\n- Added new trending tech articles\n- Maintained list of recent 7 articles\n- Sources: Dev.to & Hacker News\n\n**Triggered by:** Daily schedule (8 AM UTC)\n**Date:** $(date +'%Y-%m-%d %H:%M:%S UTC')\n\n---\n*This is an automated update. The articles were selected based on relevance, engagement, and trending status.*"
-                  else
-                      PR_TITLE="📝 Manual README Research Update"
-                      PR_BODY="Manual update of README with latest research articles.\n\n---\n*This update was triggered manually via workflow dispatch.*"
-                  fi
-                  
-                  gh pr create --base main --head ${{ steps.check_changes.outputs.branch_name }} --title "$PR_TITLE" --body "$PR_BODY"
+      - name: 📊 Execution Summary
+        if: always() && steps.rate_limit.outputs.should_run == 'true'
+        run: |
+          echo "## 📋 Execution Summary"
+          echo "- **Trigger**: ${{ github.event_name }}"
+          echo "- **Time**: $(date +'%Y-%m-%d %H:%M:%S UTC')"
+          echo "- **Changes**: ${{ steps.changes.outputs.has_changes || 'none' }}"
+          
+          if [ "${{ steps.changes.outputs.has_changes }}" = "true" ]; then
+            echo "- **Branch**: ${{ steps.changes.outputs.branch_name }}"
+            echo "- **PR**: ${{ steps.create_pr.outputs.pr_url }}"
+            
+            if [ "${{ github.event_name }}" = "schedule" ]; then
+              echo "- **Status**: ✅ Auto-merged successfully"
+            else
+              echo "- **Status**: 📝 PR created for manual review"
+            fi
+          else
+            echo "- **Status**: 📝 No new articles found"
+          fi
+          
+          echo ""
+          echo "🎯 **Next scheduled run**: Within 4-8 hours (randomized)"
 
-            - name: Auto-merge Pull Request (for scheduled runs)
-              if: steps.check_changes.outputs.changes_detected == 'true' && github.event_name == 'schedule'
-              env:
-                  GH_TOKEN: ${{ secrets.GH_TOKEN }}
-              run: |
-                  # Wait a moment for PR to be fully created
-                  sleep 5
-                  
-                  PR_NUMBER=$(gh pr list --state open --head ${{ steps.check_changes.outputs.branch_name }} --json number --jq '.[0].number')
-                  
-                  if [ "$PR_NUMBER" != "null" ] && [ "$PR_NUMBER" != "" ]; then
-                      echo "Auto-merging PR #$PR_NUMBER"
-                      gh pr merge $PR_NUMBER --squash --delete-branch --admin
-                      echo "✅ Successfully merged and cleaned up PR #$PR_NUMBER"
-                  else
-                      echo "❌ Could not find PR to merge"
-                      exit 1
-                  fi
-                  
-            - name: Notify completion
-              if: steps.check_changes.outputs.changes_detected == 'true'
-              run: |
-                  if [ "${{ github.event_name }}" = "schedule" ]; then
-                      echo "✅ Daily automation completed successfully!"
-                      echo "📊 README updated with fresh tech articles"
-                  else
-                      echo "✅ Manual update completed - PR created for review"
-                  fi
-                  
-            - name: No changes notification
-              if: steps.check_changes.outputs.changes_detected == 'false'
-              run: |
-                  echo "ℹ️ No changes detected - README already up to date"
-                  echo "🔄 Will try again tomorrow or run manually with new articles"
+      - name: ⏸️ Rate Limited Summary
+        if: always() && steps.rate_limit.outputs.should_run == 'false'
+        run: |
+          echo "## ⏸️ Execution Skipped"
+          echo "- **Reason**: Rate limiting (last run < 4 hours ago)"
+          echo "- **Next run**: When rate limit expires or manual trigger"
+          echo "- **Override**: Use 'force_run' input for immediate execution"
