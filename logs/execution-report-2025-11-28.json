@@ -1,0 +1,34 @@
+{
+  "date": "2025-11-28",
+  "summary": {
+    "total_executions": 2,
+    "successful_executions": 1,
+    "failed_executions": 0,
+    "api_calls": 0,
+    "articles_processed": 1
+  },
+  "executions": [
+    {
+      "timestamp": "2025-11-28T08:49:50.039Z",
+      "level": "SUCCESS",
+      "message": "Automation success",
+      "data": {
+        "trigger": "automatic",
+        "articles_count": 1,
+        "duration": 8059,
+        "sources": [
+          "Hacker News"
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-11-28T08:49:41.984Z",
+      "level": "STARTED",
+      "message": "Automation started",
+      "data": {
+        "trigger": "automatic"
+      }
+    }
+  ],
+  "recent_errors": []
+}

@@ -1,0 +1,2 @@
+{"timestamp":"2025-11-28T08:49:41.984Z","level":"STARTED","message":"Automation started","data":{"trigger":"automatic"}}
+{"timestamp":"2025-11-28T08:49:50.039Z","level":"SUCCESS","message":"Automation success","data":{"trigger":"automatic","articles_count":1,"duration":8059,"sources":["Hacker News"]}}

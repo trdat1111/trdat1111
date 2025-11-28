@@ -1,0 +1,11 @@
+{"timestamp":"2025-11-28T08:49:41.988Z","level":"INFO","message":"Running in automatic mode - fetching fresh articles"}
+{"timestamp":"2025-11-28T08:49:41.989Z","level":"INFO","message":"Fetching articles from all sources..."}
+{"timestamp":"2025-11-28T08:49:42.416Z","level":"WARN","message":"Request failed for https://dev.to/api/articles?per_page=20&state=fresh&top=7, retrying in 1000ms... (1/3)"}
+{"timestamp":"2025-11-28T08:49:43.630Z","level":"WARN","message":"Request failed for https://dev.to/api/articles?per_page=20&state=fresh&top=7, retrying in 2000ms... (2/3)"}
+{"timestamp":"2025-11-28T08:49:44.306Z","level":"SUCCESS","message":"Found 5 relevant Hacker News articles"}
+{"timestamp":"2025-11-28T08:49:45.840Z","level":"WARN","message":"Request failed for https://dev.to/api/articles?per_page=20&state=fresh&top=7, retrying in 4000ms... (3/3)"}
+{"timestamp":"2025-11-28T08:49:50.031Z","level":"ERROR","message":"Dev.to fetch failed: HTTP 403: Forbidden Bots"}
+{"timestamp":"2025-11-28T08:49:50.035Z","level":"SUCCESS","message":"Selected 1 articles:"}
+{"timestamp":"2025-11-28T08:49:50.035Z","level":"INFO","message":"  • Indie game developers have a new sales pitch: being 'AI free' (Hacker News, score: 182)"}
+{"timestamp":"2025-11-28T08:49:50.039Z","level":"SUCCESS","message":"README.md updated successfully"}
+{"timestamp":"2025-11-28T08:49:50.039Z","level":"SUCCESS","message":"README updated with auto-fetched articles"}
