@@ -1,6 +1,6 @@
 ![GitHub Profile Masterhead](https://repository-images.githubusercontent.com/588181932/e36ec678-7984-4cdd-8e4c-a3932772ff8e)
 
-<h3 align="center">Full-stack developer with ~4 years of experience in the JavaScript, Golang ecosystem and database optimization. Skilled in system design and adept at articulating technical concepts clearly. Strong written and verbal communication skills in English</h3>
+<h3 align="center">Full-stack developer with ~5 years of experience in the JavaScript, Golang ecosystem and database optimization. Skilled in system design and adept at articulating technical concepts clearly. Strong written and verbal communication skills in English</h3>
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=trdat1111&label=Profile%20views&color=0e75b6&style=flat" alt="trdat1111" /> </p>
 
