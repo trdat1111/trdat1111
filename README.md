@@ -13,13 +13,13 @@
 
 5+ years building scalable full-stack systems and leading engineering teams. I work across the entire stack — from React/Vue frontends to Node.js/Go/Python backends — with a strong focus on **database optimization**, **system design**, and **clean architecture**.
 
-- Led and mentored teams of 5+ engineers across multiple projects · 95% on-time delivery rate
+- Led and mentored engineering teams across multiple concurrent projects
 - Architected monolith-to-microservices migrations and presented proposals directly to C-level stakeholders
-- Resolved 20+ slow queries per engagement · 50–70% DB performance gains · page load 5s → 1.5s
-- Shipped products handling 500K+ monthly transactions and 1,000+ daily active users
-- Re-architected CI/CD pipelines cutting build time from 25min to 8min · 2× deployment frequency
-- Currently acting as tech lead and primary client contact across concurrent client projects
-- English: C2 Proficient (EFSET) · LinkedIn content creator · 5,000+ followers
+- Specialized in database optimization — indexing strategies, query profiling, connection pooling
+- Shipped production systems across gaming, blockchain supply chain, and low-code domains
+- Re-architected CI/CD pipelines with Docker to significantly reduce build time and increase deployment frequency
+- Currently acting as tech lead and primary client contact, owning scoping, delivery, and stakeholder communication
+- English: C2 Proficient (EFSET) · C1 (British Council EnglishScore) · LinkedIn content creator
 
 ---
 
@@ -80,7 +80,6 @@
 
 | Company | Role | Period |
 |---|---|---|
-| **Retoolers.io** | Senior Full-Stack Engineer | Dec 2025 – Present |
 | **The Growhub** | Senior Full-Stack Engineer | Aug 2024 – Oct 2025 |
 | **WeCommit** | Database Engineer | Jan 2024 – Sep 2025 |
 | **Nexon** | Full-Stack Engineer & Team Lead | Apr 2022 – Aug 2024 |
