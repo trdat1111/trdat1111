@@ -13,11 +13,12 @@
 
 5+ years building scalable full-stack systems and leading engineering teams. I work across the entire stack — from React/Vue frontends to Node.js/Go/Python backends — with a strong focus on **database optimization**, **system design**, and **clean architecture**.
 
-Currently at **Retoolers.io** (low-code agency), acting as tech lead and primary client contact across concurrent projects.
-
-- Led teams of 5+ engineers · 95% on-time delivery rate
-- Achieved 50–70% query performance improvements through DB optimization
-- Shipped systems handling 500K+ monthly transactions and 1,000+ daily users
+- Led and mentored teams of 5+ engineers across multiple projects · 95% on-time delivery rate
+- Architected monolith-to-microservices migrations and presented proposals directly to C-level stakeholders
+- Resolved 20+ slow queries per engagement · 50–70% DB performance gains · page load 5s → 1.5s
+- Shipped products handling 500K+ monthly transactions and 1,000+ daily active users
+- Re-architected CI/CD pipelines cutting build time from 25min to 8min · 2× deployment frequency
+- Currently acting as tech lead and primary client contact across concurrent client projects
 - English: C2 Proficient (EFSET) · LinkedIn content creator · 5,000+ followers
 
 ---
