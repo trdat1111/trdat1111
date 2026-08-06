@@ -9,20 +9,20 @@
 
 </div>
 
-Full-stack Software Engineer with ~6 years shipping production systems across JavaScript/TypeScript, Go, and Python. I work across the entire stack — from React/Vue frontends to Node.js/Go/Python backends — with particular depth in **database optimization**, **system design**, and **AI-powered automation pipelines**.
+Full-stack Software Engineer with ~6 years shipping production systems across JavaScript/TypeScript, Go, and Python. I work across the entire stack, from React/Vue frontends to Node.js/Go/Python backends, with particular depth in **database optimization**, **system design**, and **AI-powered automation pipelines**.
 
 ## Tech Stack
 
-**Languages** — TypeScript, JavaScript, Go, Python, SQL
+**Languages:** TypeScript, JavaScript, Go, Python, SQL
 
-**Frontend** — React, Next.js, Vue.js, Nuxt.js, Tailwind CSS
+**Frontend:** React, Next.js, Vue.js, Nuxt.js, Tailwind CSS
 
-**Backend** — Node.js, NestJS, Express, Django, GraphQL, gRPC, Kafka, RabbitMQ, Temporal
+**Backend:** Node.js, NestJS, Express, Django, GraphQL, gRPC, Kafka, RabbitMQ, Temporal
 
-**Databases** — PostgreSQL, MySQL, Oracle, MongoDB, Redis, Elasticsearch
+**Databases:** PostgreSQL, MySQL, Oracle, MongoDB, Redis, Elasticsearch
 
-**AI / LLM** — Claude API, MCP (Model Context Protocol), n8n
+**AI / LLM:** Claude API, MCP (Model Context Protocol), n8n
 
-**Testing** — Playwright, Cypress
+**Testing:** Playwright, Cypress
 
-**Cloud & DevOps** — AWS, Supabase, Cloudflare, Docker, Git, Linux
+**Cloud & DevOps:** AWS, Supabase, Cloudflare, Docker, Git, Linux
