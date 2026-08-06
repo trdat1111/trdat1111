@@ -11,15 +11,7 @@
 
 ---
 
-5+ years building scalable full-stack systems and leading engineering teams. I work across the entire stack — from React/Vue frontends to Node.js/Go/Python backends — with a strong focus on **database optimization**, **system design**, and **clean architecture**.
-
-- Led and mentored engineering teams across multiple concurrent projects
-- Architected monolith-to-microservices migrations and presented proposals directly to C-level stakeholders
-- Specialized in database optimization — indexing strategies, query profiling, connection pooling
-- Shipped production systems across gaming, blockchain supply chain, and low-code domains
-- Re-architected CI/CD pipelines with Docker to significantly reduce build time and increase deployment frequency
-- Currently acting as tech lead and primary client contact, owning scoping, delivery, and stakeholder communication
-- English: C2 Proficient (EFSET) · C1 (British Council EnglishScore) · LinkedIn content creator
+Full-stack Software Engineer with ~6 years shipping production systems across JavaScript/TypeScript, Go, and Python. I work across the entire stack — from React/Vue frontends to Node.js/Go/Python backends — with particular depth in **database optimization**, **system design**, and **AI-powered automation pipelines**.
 
 ---
 
@@ -62,6 +54,12 @@
 ![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat&logo=redis&logoColor=white)
 ![Elasticsearch](https://img.shields.io/badge/Elasticsearch-005571?style=flat&logo=elasticsearch&logoColor=white)
 
+**AI / LLM**
+
+![Claude](https://img.shields.io/badge/Claude_API-D97757?style=flat&logo=anthropic&logoColor=white)
+![MCP](https://img.shields.io/badge/MCP-000000?style=flat)
+![n8n](https://img.shields.io/badge/n8n-EA4B71?style=flat&logo=n8n&logoColor=white)
+
 **Testing**
 
 ![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=flat&logo=playwright&logoColor=white)
@@ -70,41 +68,8 @@
 **Cloud & DevOps**
 
 ![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat&logo=amazonaws&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-3FCF8E?style=flat&logo=supabase&logoColor=white)
+![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?style=flat&logo=cloudflare&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white)
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat&logo=linux&logoColor=black)
-
----
-
-## Experience
-
-| Company | Role | Period |
-|---|---|---|
-| **The Growhub** | Senior Full-Stack Engineer | Aug 2024 – Oct 2025 |
-| **WeCommit** | Database Engineer | Jan 2024 – Sep 2025 |
-| **Nexon** | Full-Stack Engineer & Team Lead | Apr 2022 – Aug 2024 |
-| **Goodland** | Full-Stack Engineer | Nov 2020 – Nov 2022 |
-
----
-
-## GitHub Stats
-
-<div align="center">
-  <img height="160" src="https://github-readme-stats.vercel.app/api?username=trdat1111&show_icons=true&hide_border=true&theme=github_dark&include_all_commits=true&count_private=true" />
-  <img height="160" src="https://github-readme-stats.vercel.app/api/top-langs?username=trdat1111&layout=compact&hide_border=true&theme=github_dark" />
-</div>
-
-<div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=trdat1111&hide_border=true&theme=github-dark-blue" />
-</div>
-
----
-
-## Recent Reads
-
-<!-- updated periodically -->
-- [OpenAI API user data exposed in Mixpanel security breach](https://www.dqindia.com/news/openai-api-user-data-exposed-in-mixpanel-security-breach-10816218)
-- [(comic) Urgent Important Matrix](https://api.daily.dev/r/nbjDrivTi)
-- [Shopify Tech Stack](https://api.daily.dev/r/QRG5vP9zQ)
-- [The Micro-Frontend Architecture Handbook](https://api.daily.dev/r/NY57EYZSG)
-- [Master React by Building 25 Projects](https://api.daily.dev/r/qq5l77Imx)
