@@ -9,11 +9,7 @@
 
 </div>
 
----
-
 Full-stack Software Engineer with ~6 years shipping production systems across JavaScript/TypeScript, Go, and Python. I work across the entire stack — from React/Vue frontends to Node.js/Go/Python backends — with particular depth in **database optimization**, **system design**, and **AI-powered automation pipelines**.
-
----
 
 ## Tech Stack
 
